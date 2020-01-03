@@ -1,0 +1,56 @@
+<nav class="navbar navbar-dark bg-dark ">
+    <div>
+    <a class="navbar-brand" [routerLink]='["/"]'>SportHub</a>
+        <button class="btn  btn-danger" >
+            <a [routerLink]='["/team"]'>
+              <span class='glyphicon glyphicon-user' color="white"></span> Team
+            </a>
+          </button>
+          <button class="btn btn-danger" >
+              <a [routerLink]='["/standing"]'>
+                <span class='glyphicon glyphicon-user' color="white"></span> Standings
+              </a>
+            </button>
+            <button class="btn btn-danger" >
+              <a [routerLink]='["/schedule"]'>
+                <span class='glyphicon glyphicon-user' color="white"></span> Matches
+              </a>
+            </button>
+    </div>
+    
+    <div class="pull-right">
+        <div *ngIf="!loggedIn()" class="pull-right">
+            <ul class="nav navbar-nav">
+              <li>
+                <button class="btn navbar-btn btn-success">
+                  <a [routerLink]='["/login"]'>
+                    <span class='glyphicon glyphicon-user' color="white"></span> Login
+                  </a>
+                </button>
+                <button class="btn navbar-btn btn-danger">
+                  <a [routerLink]='["/signup"]'>
+                    <span class='glyphicon glyphicon-user' color="white"></span> Register
+                  </a>
+                </button>
+              </li>
+            </ul>
+        </div>
+        <div *ngIf="loggedIn()" class="pull">
+
+          <ul class="nav navbar-nav">
+            <li>
+              <button class="btn navbar-btn btn-success">
+                <a class='nav-link' (click)="logout()">
+                  <span class='glyphicon glyphicon-user' color="white"></span>
+                  Logout
+                </a>
+              </button>
+             
+            </li>
+          </ul>
+          
+        </div>
+    </div>
+    
+    
+  </nav> 

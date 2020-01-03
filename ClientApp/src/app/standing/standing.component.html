@@ -1,0 +1,59 @@
+<!-- <div class="row search">
+  <div class="col-sm-8 col-sm-offset-2" style="text-align: center; text-align: center;     margin-top: 36px;  ">
+    <div class="input-group">
+      <input type="search" class="form-control input-sm" placeholder="Search with name " [(ngModel)]="search"
+        (keyup)="SearchTeamStanding(search)">
+    </div>
+  </div>
+</div> -->
+<form class="form-inline active-cyan-3 active-cyan-4">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input class="form-control form-control-sm ml-9 " type="text" placeholder="TeamName" [(ngModel)]="search"
+    (keyup)="SearchTeamStanding(search)" [ngModelOptions]="{standalone: true}"
+      aria-label="Search">
+      
+  </form>
+
+
+
+
+  
+<div class="standingTable">
+<table class="table table-bordered table-dark" >
+  <thead>
+    <tr>
+      <th scope="col">order</th>
+      <th scope="col">Name</th>
+      <th scope="col">Games</th>
+      <th scope="col">Wins</th>
+      <th scope="col">Losses</th>
+      <th scope="col">Draws</th>
+      <th scope="col">GoalsAgainst</th>
+      <th scope="col">GoalsScored</th>
+      <th scope="col">GoalsDifferential</th>
+      <th scope="col">Points</th>
+    </tr>
+  </thead>
+  <p *ngIf="isEmpty" class="text-center text-danger" style="text-align: center;">No results found</p>
+  <div class="lds-dual-ring text-center text-danger" *ngIf="loading else loaded">
+      Loading
+      </div>
+  <tbody *ngFor= "let standings of standing; let i=index" >
+        <tr *ngIf="i<20">
+                   
+            <th scope="row"  >{{standings.Order}}  </th>
+            <td >{{standings.ShortName}}</td>
+            <td >{{standings.Games}}</td>
+            <td >{{standings.Wins}}</td>
+            <td >{{standings.Losses}}</td>
+            <td >{{standings.Draws}}</td>
+            <td >{{standings.GoalsAgainst}}</td>
+            <td >{{standings.GoalsScored}}</td>
+            <td >{{standings.GoalsDifferential}}</td>
+            <td >{{standings.Points}}</td>
+
+        </tr>
+  </tbody>
+
+</table>
+</div>

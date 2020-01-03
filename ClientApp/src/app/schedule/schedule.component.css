@@ -1,0 +1,48 @@
+.scheduleTable{
+  border: 3px solid #8AC007;
+padding: 15px;
+border-radius: 3px;
+border: 3px;
+}
+
+.table{
+  border-radius: 5px;
+}
+
+/*  */
+.active-cyan-3 input[type=text] {
+  border: 1px solid #4dd0e1;
+  box-shadow: 0 0 0 1px #4dd0e1;
+  margin-top: 30px;
+  margin-left: 650px;
+  margin-bottom: 30px;
+  width: 272px;
+  text-align: -moz-center;
+  height: 46px;
+
+}
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin-left: 500px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid black;
+    border-color: rgb(17, 9, 9) transparent rgb(7, 7, 7) transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

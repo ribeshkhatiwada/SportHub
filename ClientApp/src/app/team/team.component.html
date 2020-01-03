@@ -1,0 +1,95 @@
+<!-- <script>
+  window.twttr = (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function (f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));
+
+</script> -->
+
+<div *ngIf="userDisplayName" class="userName text-center">
+  <h3>Logged as: {{userDisplayName}}</h3>
+</div>
+
+<p class="text-center" *ngIf="!myTeam">Loading data... </p>
+
+<!--User Team Dispaly-->
+<div *ngIf="myTeam">
+    <div class="card" style="width: 18rem; margin: auto" *ngIf="myTeam">
+        <img class="card-img-top" [src]="myTeam.WikipediaLogoUrl" style="height: 160px;width: 160px; margin-left: 65px;"
+          alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{myTeam.Name}}</h5>
+          <p class="card-text text-center">{{myTeam.Nickname1}}</p>
+        </div>
+      </div>
+      
+      
+      <div class="row search">
+        <div class="col-sm-8 col-sm-offset-2" style="text-align: center; text-align: center;     margin-top: 36px;  ">
+          <div class="input-group">
+            <input type="search" class="form-control input-sm searchbar" placeholder="Search with name " [(ngModel)]="search"
+              (keyup)="SearchPlayer(search)">
+          </div>
+        </div>
+      </div>
+      
+      
+      <p *ngIf="isEmpty" class="text-center text-danger">No results found</p>
+      
+      
+      
+      <div class="column-1" style="margin-top: 53px;">
+        <h1 class="text-center " *ngIf="players && !isEmpty">{{myTeam.Name}} Squad 2019-20</h1>
+        <!-- <div class="row">
+          <div class="col-sm-offset-2" style="margin-top: 53px;" *ngFor="let teams of liverpool">
+            <div class="card">
+              <img class=" card-img-top pic" src="{{teams.pictureUrl}}" alt="Loading">
+              <div class="card-body">
+                <h5 class="card-title text-center">Player Name: <strong>{{teams.name}}</strong></h5>
+                <h5 class="card-title text-center">Age:{{teams.age}}</h5>
+                <h5 class="card-title text-center">Nationality: {{teams.nationality}}</h5>
+                <h5 class="card-title text-center">Games Played: {{teams.apps}}</h5>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      
+        <div class="row cardStyle1 ">
+          <div class="col-md-3" *ngFor="let players of players">
+            <div class="card cardStyle">
+              <img class="card-img-top pic" class="center" height="160px" width="auto" src="{{players.PhotoUrl}}"
+                alt="Loading">
+              <div class="card-body">
+                <h5 class="card-title text-center"> <strong>{{players.FirstName+ " "+ players.LastName}}</strong></h5>
+              </div>
+              <ul class="list-group list-group-flush text-center">
+                <li class="list-group-item text-center">Nationality: <strong>{{players.BirthCountry}}</strong></li>
+                <li class="list-group-item text-center">JerseyNumber: <strong>{{players.Jersey}}</strong></li>
+                <li class="list-group-item text-center">Position: <strong>{{players.PositionCategory}}</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!--IFrame-->
+      <div class="row" *ngIf="currentTeamIframeUrl">
+        <div class="column-2" style="margin-top: 50px;">
+          <embed [src]="currentTeamIframeUrl" />
+      </div>
+      
+
+</div>

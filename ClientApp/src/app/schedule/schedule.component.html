@@ -1,0 +1,51 @@
+<!-- <div class="row search searchBar">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="input-group">
+      <input type="search" class="form-control input-sm" placeholder="Search with name " [(ngModel)]="search"
+        (keyup)="SearchPlayer(search)">
+    </div>
+  </div>
+</div> -->
+
+<form class="form-inline active-cyan-3 active-cyan-4">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input class="form-control form-control-sm ml-9 " type="text" placeholder="Home or Away Team" [(ngModel)]="search"
+    (keyup)="SearchPlayer(search)" [ngModelOptions]="{standalone: true}"
+      aria-label="Search">
+  </form>
+  <div class=scheduleTable>
+  
+  
+<table class="table table-bordered table-dark" >
+  
+  <thead>
+    <tr>
+      <th scope="col">HomeTeam</th>
+      <th scope="col">AwayTeam</th>
+      <th scope="col">HomeTeamScore</th>
+      <th scope="col">AwayTeamScore</th>
+      <th scope="col">DateTime</th>
+      <th scope="col">Day</th>
+      <th scope="col">Week</th>
+    </tr>
+  </thead>
+  <p *ngIf="isEmpty" class="text-center text-danger" style="text-align: center;">No results found</p>
+  <div class="lds-dual-ring text-center text-danger" *ngIf="loading else loaded">
+      Loading
+      </div>
+  <tbody *ngFor= "let standings of schedules" >
+        <tr >
+                   
+            <th scope="row"  >{{standings.HomeTeamName}}  </th>
+            <td >{{standings.AwayTeamName}}</td>
+            <td >{{standings.HomeTeamScore}}</td>
+            <td >{{standings.AwayTeamScore}}</td>
+            <td >{{standings.DateTime}}</td>
+            <td >{{standings.Day}}</td>
+            <td >{{standings.Week}}</td>
+
+        </tr>
+  </tbody>
+
+</table>
+</div>

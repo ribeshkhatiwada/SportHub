@@ -1,2 +1,1 @@
-# SportHub
-Website where you can select your favorite English Premier League team and get update about it.
+# cmps285-fall2019-section02-group2

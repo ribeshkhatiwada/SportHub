@@ -1,0 +1,18 @@
+<div>
+  <h3 class="header text-center" style="margin-bottom: 200px; margin-top: 100px;"><strong>{{nameOfTeam}} Squad 2019</strong></h3>
+</div>
+<div class="row cardStyle1 ">
+    <div class="col-md-3" *ngFor="let players of playerArray"  >
+      <div class="card cardStyle" >
+        <img class="card-img-top pic" class="center" height="160px" width="auto" src="{{players.PhotoUrl}}" alt="Loading">
+        <div class="card-body">
+          <h5 class="card-title text-center"> <strong>{{players.FirstName+ " "+ players.LastName}}</strong></h5>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item text-center">Nationality: <strong>{{players.BirthCountry}}</strong></li>
+        <li class="list-group-item text-center">JerseyNumber: <strong>{{players.Jersey}}</strong></li>
+        <li class="list-group-item text-center">Position: <strong>{{players.PositionCategory}}</strong></li>
+      </ul>
+      </div>
+    </div>
+    </div>

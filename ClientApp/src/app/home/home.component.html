@@ -1,0 +1,77 @@
+<carousel>
+  <slide>
+    <img class="carousel-img"
+      src="https://3.bp.blogspot.com/-93cqs5Oi2i8/XEXcYS1gEgI/AAAAAAAAEr4/EE5i2TRsa-snXdqrUO5adD_ruD7ZogWiACHMYCw/s1600/see-why-chelsea-and-tottenham-wont-win-the-league-this-season.jpg"
+      alt="third slide">
+    <div class="carousel-caption d-none d-md-block">
+    </div>
+  </slide>
+  <slide>
+    <img class="carousel-img"
+      src="https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      alt="first slide">
+    <div class="carousel-caption d-none d-md-block">
+
+
+    </div>
+  </slide>
+  <slide>
+    <img class="carousel-img" src="https://wallpapercave.com/wp/wp1830648.jpg" alt="second slide">
+    <div class="carousel-caption d-none d-md-block">
+
+
+    </div>
+  </slide>
+  <slide>
+    <img class="carousel-img" src="https://i.pinimg.com/originals/94/c2/28/94c2287d86978da93522dc5b9196f98f.png"
+      alt="third slide">
+    <div class="carousel-caption d-none d-md-block">
+
+    </div>
+  </slide>
+</carousel>
+
+
+<div *ngIf="loading else loaded">
+    loading ...
+</div>
+
+<div style="margin-left: 400px; margin-top: 35px; margin-bottom: 35px;">
+  <h1> Welcome to the world of Football</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor='let teams of team'>
+      <div class="card" style="width: 18rem;">
+        <div style="height: 150px;width: 150px;display: flex;">
+          <img style="margin-left: 65px;padding-top: 10px;" class="card-img-top" (click)="showPlayers(teams)"
+            src="{{teams.WikipediaLogoUrl}}" alt="Loading">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center"> <strong>{{teams.Name}}</strong></h5>
+          <p class="card-text"> <a href="{{teams.Website}}" target="_blank">{{teams.Website}}</a></p>
+          <p class="card-text">City: <strong>{{teams.City}}</strong></p>
+          <p class="card-text">Stadium: <strong>{{teams.VenueName}}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div>
+<div class="row ">
+  <div class="column-1">
+    <div class="col-sm-4" *ngFor="let teams of team">
+      <div class="card cardStyle">
+        <img class="card-img-top pic" (click)="showPlayers(teams)" src="{{teams.WikipediaLogoUrl}}" alt="Loading">
+        <div class="card-body">
+          <h5 class="card-title text-center"> <strong>{{teams.Name}}</strong></h5>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item text-center"> <a href="{{teams.Website}}" target="_blank">{{teams.Website}}</a></li>
+          <li class="list-group-item text-center">City: <strong>{{teams.City}}</strong></li>
+          <li class="list-group-item text-center">Stadium: <strong>{{teams.VenueName}}</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,101 @@
+
+  <div class="signup-form">
+    <form method="post" (ngSubmit)= "signupForm.form.valid && register()" #signupForm="ngForm" novalidate>
+      <h2>Register</h2>
+      <p>Please fill in this form to create an account!</p>
+      <hr>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input type="text" class="form-control" name="FirstName" placeholder="FirstName" required #name="ngModel"
+                 [(ngModel)]="model.FirstName">
+        </div>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          </div>
+        </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input type="text" class="form-control" name="LastName" placeholder="LastName" required #LastName="ngModel"
+                 [(ngModel)]="model.LastName">
+        </div>
+        <div *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="LastName.errors.required">
+            Last Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input type="text" class="form-control" name="username" placeholder="Username" required #UserName="ngModel"
+                 [(ngModel)]="model.username">
+        </div>
+        <div *ngIf="UserName.invalid && (UserName.dirty || UserName.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="UserName.errors.required">
+            UserName is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input type="text" class="form-control" name="Email" placeholder="Email" required #Email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                 [(ngModel)]="model.Email">
+        </div>
+        <div *ngIf="Email.invalid && (Email.dirty || Email.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="Email.errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="Email.errors.pattern">
+            Email pattern is not matched.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+          <input type="password" class="form-control" name="password" placeholder="Password" required #Password="ngModel" minlength="4"
+                 [(ngModel)]="model.password">
+        </div>
+        <div *ngIf="Password.invalid && (Password.dirty || Password.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="Password.errors.required">
+            Password is required.
+          </div>
+          <div *ngIf="Password.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+        <div class="form-group">
+          <div class="input-group">
+            <select class="form-control" [(ngModel)]="model.teamId" name="teamId" required name="teamId">
+
+              <option selected [value]="undefined">Please Select your team</option>
+              <option *ngFor="let team of nameOfTeams" value="{{team.id}}">{{team.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" [disabled]="signupForm.form.invalid"  class="btn btn-primary btn-lg">Register</button>
+        </div>
+        <div>
+          <p class="text-danger">{{message}}</p>
+        </div>
+        <div class="text-center">Already have an account? <a [routerLink]='["/login"]'>Login</a></div>
+</form>
+</div>
+

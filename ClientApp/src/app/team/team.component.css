@@ -1,0 +1,56 @@
+element {
+  width: 18rem;
+  margin-top: 286px;
+}
+
+.pic {
+  width: 200px;
+  height: 200px;
+}
+
+.column-1 {
+  float: left;
+  width: 60%;
+  padding: 20px;
+}
+
+
+.column-2 {
+  border: 3px solid #8AC007;
+  float: right;
+  padding: 5px;
+  height: 100%;
+}
+
+embed {
+  height: 600px;
+  width: 445px;
+}
+
+.column-3 {
+  position: relative;
+  width: 50%;
+  bottom: 20px;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.searchbar {
+  margin-left: 270px;
+  padding: 10px;
+}
+
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.userName{
+  padding: 20px;
+}
